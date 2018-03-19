@@ -1,0 +1,788 @@
+$imagePath: "../images"
+
+html
+  font-size: 10px
+  font-family: "Open Sans", sans-serif
+  color: #000
+  background-color: #888
+  
+body
+  margin: auto
+
+// banner
+.banner-container
+  height: 100vh
+  position: relative
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5)
+  z-index: 1
+  
+  .banner
+    background-color: #888
+    width: 10*5rem
+    position: absolute
+    left: 50%
+    top: 50vh
+    margin-left: -25rem
+
+  .banner > div
+    color: white
+    font-size: 5rem
+    text-align: center
+  
+// Parallax
+.parallax-container
+  position: relative
+  height: 100vh
+  background:
+    image: url(#{$imagePath}/website-background.png)
+    size: 100% auto
+    position: top center
+    attachment: fixed
+  overflow: hidden
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5)
+  
+  .back
+    width: 100%
+    height: 100%
+    background:
+      image: url(#{$imagePath}/dust-clouds.png)
+      size: auto 960px
+      position: top left
+      attachment: fixed
+    position: absolute
+    transform: translateZ(-999px) scale(2)
+    z-index: 5
+
+  .middle
+    height: 100px
+    width: 100%
+    background:
+      image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzc4LjA3IDc3LjA3IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAzNzguMDcgNzcuMDciIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTIyLjcxLDQyLjgzSDIuNjhWMC43MmgxOS41NWM4LjYsMCwxMy44OSw0LjI3LDEzLjg5LDEwLjg5djAuMTJjMCw0Ljc1LTIuNTMsNy40LTUuNTMsOS4wOA0KCQljNC44NywxLjg2LDcuODgsNC42OSw3Ljg4LDEwLjM1djAuMTJDMzguNDcsMzguOTgsMzIuMjIsNDIuODMsMjIuNzEsNDIuODN6IE0yNi45MiwxMy4xN2MwLTIuNzctMi4xNy00LjMzLTYuMDgtNC4zM0gxMS43djguOQ0KCQloOC41NGM0LjA5LDAsNi42OC0xLjMyLDYuNjgtNC40NVYxMy4xN3ogTTI5LjI3LDMwLjAyYzAtMi44My0yLjExLTQuNTctNi44Ni00LjU3SDExLjd2OS4yNmgxMS4wMWM0LjA5LDAsNi41Ni0xLjQ0LDYuNTYtNC41Nw0KCQlWMzAuMDJ6Ii8+DQoJPHBhdGggZD0iTTQ1Ljk4LDQyLjgzVjAuNzJoOS4yNnYzMy42OGgyMC45OXY4LjQySDQ1Ljk4eiIvPg0KCTxwYXRoIGQ9Ik0xMTUuMTYsNDIuODNsLTMuODUtOS40NGgtMTcuOGwtMy44NSw5LjQ0aC05LjQ0TDk4LjI2LDAuNDJoOC41NGwxOC4wNSw0Mi40MUgxMTUuMTZ6IE0xMDIuNDEsMTEuNTVMOTYuODIsMjUuMkgxMDgNCgkJTDEwMi40MSwxMS41NXoiLz4NCgk8cGF0aCBkPSJNMTQ3LjU2LDQzLjU1Yy0xMi4zOSwwLTIxLjU5LTkuNTYtMjEuNTktMjEuNjV2LTAuMTJDMTI1Ljk2LDkuOCwxMzQuOTksMCwxNDcuOTIsMGM3Ljk0LDAsMTIuNjksMi42NSwxNi42LDYuNWwtNS44OSw2LjgNCgkJYy0zLjI1LTIuOTUtNi41Ni00Ljc1LTEwLjc3LTQuNzVjLTcuMSwwLTEyLjIxLDUuOS0xMi4yMSwxMy4xMXYwLjEyYzAsNy4yMiw0Ljk5LDEzLjIzLDEyLjIxLDEzLjIzYzQuODEsMCw3Ljc2LTEuOTIsMTEuMDctNC45Mw0KCQlsNS44OSw1Ljk2QzE2MC40OSw0MC42NiwxNTUuNjgsNDMuNTUsMTQ3LjU2LDQzLjU1eiIvPg0KCTxwYXRoIGQ9Ik0xOTguMjEsNDIuODNMMTg1LjE2LDI0LjlsLTQuODcsNS4wNXYxMi44N2gtOS4yNlYwLjcyaDkuMjZ2MTguNDFsMTcuMDgtMTguNDFoMTEuMTlsLTE3LjE0LDE3Ljg2bDE3LjkyLDI0LjI0SDE5OC4yMXoiLz4NCgk8cGF0aCBkPSJNMjUzLjAxLDQyLjgzaC0yMC4wM1YwLjcyaDE5LjU1YzguNiwwLDEzLjg5LDQuMjcsMTMuODksMTAuODl2MC4xMmMwLDQuNzUtMi41Myw3LjQtNS41Myw5LjA4DQoJCWM0Ljg3LDEuODYsNy44OCw0LjY5LDcuODgsMTAuMzV2MC4xMkMyNjguNzYsMzguOTgsMjYyLjUxLDQyLjgzLDI1My4wMSw0Mi44M3ogTTI1Ny4yMiwxMy4xN2MwLTIuNzctMi4xNy00LjMzLTYuMDgtNC4zM0gyNDJ2OC45DQoJCWg4LjU0YzQuMDksMCw2LjY4LTEuMzIsNi42OC00LjQ1VjEzLjE3eiBNMjU5LjU2LDMwLjAyYzAtMi44My0yLjExLTQuNTctNi44Ni00LjU3SDI0MnY5LjI2aDExLjAxYzQuMDksMCw2LjU2LTEuNDQsNi41Ni00LjU3DQoJCVYzMC4wMnoiLz4NCgk8cGF0aCBkPSJNMjc2LjQzLDQyLjgzVjAuNzJoOS4yNnY0Mi4xSDI3Ni40M3oiLz4NCgk8cGF0aCBkPSJNMzIxLjE1LDQyLjgzbC05LjAyLTEzLjQ3aC03LjI4djEzLjQ3aC05LjI2VjAuNzJoMTkuMjVjOS45MiwwLDE1Ljg4LDUuMjMsMTUuODgsMTMuODl2MC4xMmMwLDYuOC0zLjY3LDExLjA3LTkuMDIsMTMuMDUNCgkJbDEwLjI5LDE1LjA0SDMyMS4xNXogTTMyMS4zMywxNS4xYzAtMy45Ny0yLjc3LTYuMDItNy4yOC02LjAyaC05LjJ2MTIuMDloOS4zOGM0LjUxLDAsNy4xLTIuNDEsNy4xLTUuOTVWMTUuMXoiLz4NCgk8cGF0aCBkPSJNMzU1LjExLDQyLjgzaC0xNi40MlYwLjcyaDE2LjQyYzEzLjIzLDAsMjIuMzgsOS4wOCwyMi4zOCwyMC45M3YwLjEyQzM3Ny40OSwzMy42MiwzNjguMzUsNDIuODMsMzU1LjExLDQyLjgzeg0KCQkgTTM2Ny44MSwyMS43N2MwLTcuNDYtNS4xMS0xMi42OS0xMi42OS0xMi42OWgtNy4xNnYyNS4zOGg3LjE2YzcuNTgsMCwxMi42OS01LjExLDEyLjY5LTEyLjU3VjIxLjc3eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZD0iTTEzNS45Myw3Ny4wN2MtNC4yNCwwLTcuMzctMy4zNC03LjM3LTcuNThjMC00LjIsMy4xMS03LjYyLDcuNDMtNy42MmMyLjY3LDAsNC4yNiwwLjk0LDUuNzMsMi4zM2wtMS4xMywxLjIyDQoJCWMtMS4yNC0xLjE4LTIuNjItMi4wMi00LjYyLTIuMDJjLTMuMjUsMC01LjY5LDIuNjItNS42OSw2LjA1czIuNDYsNi4wOSw1LjY5LDYuMDljMi4wMiwwLDMuMzQtMC43OCw0Ljc1LTIuMTJsMS4wOSwxLjA3DQoJCUMxNDAuMjgsNzYuMDQsMTM4LjYsNzcuMDcsMTM1LjkzLDc3LjA3eiIvPg0KCTxwYXRoIGQ9Ik0xNDYuMyw2Mi4xMmgxLjY2djEzLjE2aDguMjd2MS41M2gtOS45M1Y2Mi4xMnoiLz4NCgk8cGF0aCBkPSJNMTY2LjcxLDc3LjA3Yy00LjQ3LDAtNy40Ny0zLjUxLTcuNDctNy41OHMzLjA0LTcuNjIsNy41Mi03LjYyczcuNDcsMy41MSw3LjQ3LDcuNThTMTcxLjE4LDc3LjA3LDE2Ni43MSw3Ny4wN3oNCgkJIE0xNjYuNzEsNjMuNGMtMy4zNiwwLTUuNzUsMi42OS01Ljc1LDYuMDVzMi40NCw2LjA5LDUuNzksNi4wOXM1Ljc1LTIuNjksNS43NS02LjA1UzE3MC4wNyw2My40LDE2Ni43MSw2My40eiIvPg0KCTxwYXRoIGQ9Ik0xODMuODQsNzYuODJoLTEuNjhWNjMuNjVoLTQuOTN2LTEuNTNoMTEuNTV2MS41M2gtNC45M1Y3Ni44MnoiLz4NCgk8cGF0aCBkPSJNMTk0LjksNzAuMnY2LjYxaC0xLjY2di0xNC43aDEuNjZ2Ni41M2g4LjQ4di02LjUzaDEuNjZ2MTQuN2gtMS42NlY3MC4ySDE5NC45eiIvPg0KCTxwYXRoIGQ9Ik0yMTIuNjYsNjIuMTJ2MTQuN0gyMTF2LTE0LjdIMjEyLjY2eiIvPg0KCTxwYXRoIGQ9Ik0yMjkuMzgsNjIuMTJIMjMxdjE0LjdoLTEuMzJsLTkuNDktMTIuMDV2MTIuMDVoLTEuNjJ2LTE0LjdoMS41NWw5LjI2LDExLjc4VjYyLjEyeiIvPg0KCTxwYXRoIGQ9Ik0yNDMuNjEsNzcuMDdjLTQuNjIsMC03LjQ3LTMuMzYtNy40Ny03LjU4YzAtNC4wNSwyLjk2LTcuNjIsNy4zNy03LjYyYzIuNDgsMCw0LjAxLDAuNzEsNS40OCwxLjk1bC0xLjA3LDEuMjYNCgkJYy0xLjEzLTAuOTktMi4zOS0xLjY4LTQuNDctMS42OGMtMy4yNSwwLTUuNTgsMi43NS01LjU4LDYuMDVjMCwzLjUzLDIuMjUsNi4xMyw1LjgyLDYuMTNjMS42OCwwLDMuMjMtMC42NSw0LjI0LTEuNDd2LTMuNjVoLTQuNDcNCgkJdi0xLjQ5aDYuMDd2NS44NkMyNDguMTUsNzYuMDQsMjQ2LjA5LDc3LjA3LDI0My42MSw3Ny4wN3oiLz4NCjwvZz4NCjxnPg0KCTxyZWN0IHg9IjAiIHk9IjY4LjYzIiB3aWR0aD0iMTEyLjY1IiBoZWlnaHQ9IjEuNjgiLz4NCgk8cmVjdCB4PSIyNjUuNDIiIHk9IjY4LjYzIiB3aWR0aD0iMTEyLjY1IiBoZWlnaHQ9IjEuNjgiLz4NCjwvZz4NCjwvc3ZnPg0K)
+      position: center
+      repeat: no-repeat
+    position: absolute
+    top: 50%
+    margin-top: 50px
+    z-index: 10
+
+  .front
+    width: 256px
+    height: 172px
+    background:
+      image: url(http://coderx.herokuapp.com/images/computer.gif)
+      repeat: no-repeat
+      position: top left
+    position: absolute
+    top: 30%
+    margin-top: -86px
+    left: 50%
+    margin-left: -128px
+    z-index: 15
+  
+.footer-container
+  background-color: #888
+  height: 30rem
+  position: relative
+  
+  .footer
+    color: #e0e0e0
+    font-size: 20rem
+    position: absolute
+    top: 50%
+    margin-top: -10rem
+    width: 100%
+    text-align: center
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+// DESK SCENE
+.desk-scene
+  position: relative
+  margin: auto
+  height: 380px
+  width: 600px
+
+.desk
+  position: absolute
+  top: 210px
+  width: 100%
+  .leg
+    position: absolute
+    height: 100px
+    width: 30px
+    top: 160px
+    &.front
+      background: #dbb68f
+    &.back
+      margin: 0 100px 0 100px
+      background: #c1a17e
+    &.left
+      left: 0
+    &.right
+      right: 0
+  .table
+    height: 160px
+    width: 100%
+    background: #dbb68f
+    .bottom
+      position: absolute
+      bottom: -10px
+      height: 10px
+      width: 100%
+      background: #C1A17E
+    &::after
+      content: ""
+      border-top: 160px solid #aaa
+      border-right: 100px solid #dbb68f
+      position: absolute
+    &::before
+      content: ""
+      right: 0
+      border-top: 160px solid #aaa
+      border-left: 100px solid #dbb68f
+      position: absolute
+
+.monitor
+  position: absolute
+  top: 20px
+  left: calc(50% - 115px)
+  height: 160px
+  width: 200px
+  border: 15px solid #444
+  border-radius: 10px
+  background: url("https://i.stack.imgur.com/cOxBL.gif")
+  background-size: 100%
+  z-index: 2
+  &::after
+    content: ""
+    position: absolute
+    left: calc(50% - 4px)
+    bottom: -11px
+    height: 8px
+    width: 8px
+    background: #ccc
+    border-radius: 50%
+
+.stand
+  position: absolute
+  top: 175px
+  left: calc(50% - 15px)
+  height: 30px
+  width: 30px
+  background: #444
+  /*
+   *.left, .right {
+   *  position: absolute;
+   *  box-sizing: border-box;
+   *  border-top: 35px solid $desk;    
+   *}
+  .stand-shadow
+    position: absolute
+    height: 7px
+    width: 100%
+    background: rgba(0, 0, 0, 0.1)
+  .left
+    left: 0px
+    border-right: 6px solid transparent
+  .right
+    right: 0px
+    border-left: 6px solid transparent
+  &::after
+    content: ""
+    position: absolute
+    bottom: -4px
+    left: -35px
+    width: 100px
+    box-sizing: border-box
+    border-bottom: 4px solid #444
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+  &::before
+    content: ""
+    position: absolute
+    height: 4px
+    left: -35px
+    width: 100px
+    bottom: -8px
+    background: #444
+  .shadow
+    position: absolute
+    height: 8px
+    left: -55px
+    width: 140px
+    bottom: -14px
+    background: rgba(0, 0, 0, 0.15)
+    border-radius: 50%
+
+.mouse
+  position: absolute
+  top: 300px
+  left: calc(50% + 150px)
+  height: 40px
+  width: 30px
+  background: #414141
+  border-radius: 35% 35% 50% 50%
+  -webkit-transform: rotateZ(5deg)
+  transform: rotateZ(5deg)
+  .shadow
+    position: absolute
+    height: 8px
+    left: -5px
+    width: 30px
+    bottom: -4px
+    background: rgba(0, 0, 0, 0.15)
+    border-radius: 50%
+    z-index: -1
+  &::after
+    content: ""
+    border-bottom: 1px solid #555
+    width: 30px
+    top: 13px
+    position: absolute
+  &::before
+    content: ""
+    border-right: 1px solid #555
+    height: 13px
+    left: 15px
+    position: absolute
+
+.mug
+  position: absolute
+  top: 50px
+  height: 250px
+  width: 250px
+  margin: auto
+  padding-top: 100px
+  background: -webkit-linear-gradient(right, #ddd 0, white 100%)
+  background: linear-gradient(right, #ddd 0, white 100%)
+  background: -ms-linear-gradient(right, #ddd 0, white 100%)
+  background-color: white
+  border-top-left-radius: 125px 50px
+  border-top-right-radius: 125px 50px
+  -webkit-transform: scale(0.15, 0.15)
+  transform: scale(0.15, 0.15)
+  .shadow
+    position: absolute
+    height: 120px
+    top: 335px
+    left: -80px
+    width: 210px
+    background: rgba(0, 0, 0, 0.15)
+    border-radius: 50%
+    z-index: -1
+  &:before
+    content: ""
+    position: absolute
+    height: 100px
+    width: 250px
+    bottom: -50px
+    border-radius: 50%
+    background: -webkit-linear-gradient(right, #ddd 0, white 100%)
+    background: linear-gradient(right, #ddd 0, white 100%)
+    background: -ms-linear-gradient(right, #ddd 0, white 100%)
+    background-color: white
+  &:after
+    content: ""
+    position: absolute
+    height: 70px
+    width: 220px
+    top: 10px
+    left: 15px
+    border-radius: 50%
+    background: -webkit-linear-gradient(top, #c0c0c0 0, #593c1f 100%)
+    background: linear-gradient(top, #c0c0c0 0, #593c1f 100%)
+    background: -ms-linear-gradient(top, #c0c0c0 0, #593c1f 100%)
+    box-shadow: 0 0 15px #eee
+
+.handle
+  position: absolute
+  height: 200px
+  width: 120px
+  top: 70px
+  left: -120px
+  border-top-left-radius: 75px 100px
+  border-bottom-left-radius: 75px 100px
+  border-top-right-radius: 50% 20px
+  border-bottom-right-radius: 50% 20px
+  background: -webkit-linear-gradient(right, #eee 0, white 100%)
+  background: linear-gradient(right, #eee 0, white 100%)
+  background: -ms-linear-gradient(right, #eee 0, white 100%)
+  background-color: white
+  &:after
+    content: ""
+    position: absolute
+    height: 140px
+    width: 90px
+    top: 30px
+    right: 0
+    border-top-left-radius: 45px 70px
+    border-bottom-left-radius: 45px 70px
+    border-top-right-radius: 45px 35px
+    border-bottom-right-radius: 45px 35px
+    background: #dbb68f
+    box-shadow: -5px 10px 20px #ccc
+
+.steam
+  position: absolute
+  top: 50px
+  left: -15px
+  height: 150px
+  width: 150px
+  border-radius: 50%
+  background-color: #593c1f
+  margin-top: -75px
+  margin-left: 75px
+  z-index: 0
+  opacity: 0
+
+#steam-one
+  -webkit-animation: steam-one 4s ease-out infinite
+  animation: steam-one 4s ease-out infinite
+
+#steam-three
+  -webkit-animation: steam-one 4s ease-out 1s infinite
+  animation: steam-one 4s ease-out 1s infinite
+
+@-webkit-keyframes steam-one
+  0%
+    -webkit-transform: translateY(0) translateX(0) scale(0.25)
+    transform: translateY(0) translateX(0) scale(0.25)
+    opacity: 0.2
+
+  100%
+    -webkit-transform: translateY(-200px) translateX(-20px) scale(1)
+    transform: translateY(-200px) translateX(-20px) scale(1)
+    opacity: 0
+
+
+@keyframes steam-one
+  0%
+    -webkit-transform: translateY(0) translateX(0) scale(0.25)
+    transform: translateY(0) translateX(0) scale(0.25)
+    opacity: 0.2
+
+  100%
+    -webkit-transform: translateY(-200px) translateX(-20px) scale(1)
+    transform: translateY(-200px) translateX(-20px) scale(1)
+    opacity: 0
+
+
+#steam-two
+  -webkit-animation: steam-two 4s ease-out 0.5s infinite
+  animation: steam-two 4s ease-out 0.5s infinite
+
+#steam-four
+  -webkit-animation: steam-two 4s ease-out 1.5s infinite
+  animation: steam-two 4s ease-out 1.5s infinite
+
+@-webkit-keyframes steam-two
+  0%
+    -webkit-transform: translateY(0) translateX(0) scale(0.25)
+    transform: translateY(0) translateX(0) scale(0.25)
+    opacity: 0.2
+
+  100%
+    -webkit-transform: translateY(-200px) translateX(20px) scale(1)
+    transform: translateY(-200px) translateX(20px) scale(1)
+    opacity: 0
+
+
+@keyframes steam-two
+  0%
+    -webkit-transform: translateY(0) translateX(0) scale(0.25)
+    transform: translateY(0) translateX(0) scale(0.25)
+    opacity: 0.2
+
+  100%
+    -webkit-transform: translateY(-200px) translateX(20px) scale(1)
+    transform: translateY(-200px) translateX(20px) scale(1)
+    opacity: 0
+
+
+.keyboard
+  position: absolute
+  bottom: 0px
+  left: calc(50% - 150px)
+  height: 135px
+  width: 300px
+  background: #444
+  box-sizing: border-box
+  padding: 20px 5px 10px
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-box-pack: justify
+  -ms-flex-pack: justify
+  justify-content: space-between
+  border-radius: 5px
+  -webkit-transform: perspective(800px) rotateX(60deg) scale(0.8, 0.8)
+  transform: perspective(800px) rotateX(60deg) scale(0.8, 0.8)
+  -webkit-transform-origin: center center
+  transform-origin: center center
+  box-shadow: 0px 7px 0px 0px #999
+  .r1
+    height: 12px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-pack: distribute
+    justify-content: space-around
+    div
+      background: #333
+      height: 12px
+      width: 17px
+      border-radius: 2px
+      box-sizing: border-box
+      border: 1px solid #aaa
+      box-shadow: 0px 2px #bbb
+  .r2, .r3
+    height: 17px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-pack: distribute
+    justify-content: space-around
+    div
+      background: #333
+      height: 17px
+      width: 17px
+      border-radius: 2px
+      box-sizing: border-box
+      border: 1px solid #aaa
+      box-shadow: 0px 2px #bbb
+      &:last-child
+        width: 25px
+  .r4
+    height: 17px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-pack: distribute
+    justify-content: space-around
+    div
+      background: #333
+      height: 17px
+      width: 17px
+      border-radius: 2px
+      box-sizing: border-box
+      border: 1px solid #aaa
+      box-shadow: 0px 2px #bbb
+      &:first-child, &:last-child
+        width: 33px
+  .r5
+    height: 17px
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-pack: distribute
+    justify-content: space-around
+    div
+      background: #333
+      height: 17px
+      width: 17px
+      border-radius: 2px
+      box-sizing: border-box
+      border: 1px solid #aaa
+      box-shadow: 0px 2px #bbb
+      &:first-child, &:last-child
+        width: 43px
+
+.light
+  position: absolute
+  width: 60%
+  height: 40%
+  bottom: 0
+  background-color: #f8f8a9
+  background: -webkit-radial-gradient(#f8f8a9, rgba(0, 0, 0, 0))
+  background: radial-gradient(#f8f8a9, rgba(0, 0, 0, 0))
+  opacity: 0
+  -webkit-transform: rotate(-10deg)
+  transform: rotate(-10deg)
+  border-radius: 100%
+  right: 20%
+  top: 55%
+  z-index: 0
+  -webkit-animation: flicker-on 1s forwards
+  animation: flicker-on 1s forwards
+  -webkit-animation-delay: 2s
+  animation-delay: 2s
+
+@-webkit-keyframes flicker-on
+  0%
+    opacity: 0
+
+  49%
+    opacity: 0
+
+  50%
+    opacity: .4
+
+  51%
+    opacity: 0
+
+  75%
+    opacity: .3
+
+  77%
+    opacity: 0
+
+  78%
+    opacity: .4
+
+  79%
+    opacity: 0
+
+  80%
+    opacity: .4
+
+  100%
+    opacity: .4
+
+
+@keyframes flicker-on
+  0%
+    opacity: 0
+
+  49%
+    opacity: 0
+
+  50%
+    opacity: .4
+
+  51%
+    opacity: 0
+
+  75%
+    opacity: .3
+
+  77%
+    opacity: 0
+
+  78%
+    opacity: .4
+
+  79%
+    opacity: 0
+
+  80%
+    opacity: .4
+
+  100%
+    opacity: .4
+
+
+@-webkit-keyframes light-bulb
+  0%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  49%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  50%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  51%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  75%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  77%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  78%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  79%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  80%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  100%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+
+@keyframes light-bulb
+  0%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  49%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  50%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  51%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  75%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  77%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  78%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  79%
+    background: -webkit-radial-gradient(#c8c879 50%, #c8c879)
+    background: radial-gradient(#c8c879 50%, #c8c879)
+
+  80%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+  100%
+    background: -webkit-radial-gradient(#f8f8a9 50%, #c8c879)
+    background: radial-gradient(#f8f8a9 50%, #c8c879)
+
+
+.lamp
+  position: absolute
+  left: calc(50% + 130px)
+  top: 220px
+  .lamp-base
+    position: absolute
+    width: 60px
+    height: 20px
+    border-radius: 100%
+    background: #014421
+    border-bottom: 1px solid #003310
+    box-shadow: 0 2px 0px #014421
+  .lamp-pole-bottom
+    position: absolute
+    bottom: -10px
+    left: 45px
+    height: 100px
+    width: 5px
+    background: #014421
+    -webkit-transform: rotateZ(20deg)
+    transform: rotateZ(20deg)
+  .lamp-pole-top
+    position: absolute
+    bottom: 74px
+    left: 45px
+    height: 45px
+    width: 5px
+    background: #014421
+    -webkit-transform: rotateZ(-50deg)
+    transform: rotateZ(-50deg)
+  .lamp-head
+    position: absolute
+    width: 40px
+    height: 20px
+    bottom: 100px
+    border-radius: 100% 100% 10% 10%
+    background: #014421
+    -webkit-transform: rotateZ(10deg)
+    transform: rotateZ(10deg)
+  .lamp-head2
+    position: absolute
+    width: 45px
+    height: 10px
+    left: -4px
+    bottom: 95px
+    border-radius: 100% 100% 10% 10%
+    border: 1px solid #003310
+    background: #014421
+    -webkit-transform: rotateZ(10deg)
+    transform: rotateZ(10deg)
+  .bulb
+    position: absolute
+    width: 45px
+    height: 10px
+    bottom: 87px
+    left: -5px
+    border-radius: 100% 100% 100% 100%
+    background: #c8c879
+    box-shadow: 0 -2px 0px #003310
+    -webkit-transform: rotateZ(10deg)
+    transform: rotateZ(10deg)
+    -webkit-animation: light-bulb
+    animation: light-bulb
+    -webkit-animation: light-bulb 1s forwards
+    animation: light-bulb 1s forwards
+    -webkit-animation-delay: 2s
+    animation-delay: 2s
+
+.clock
+  position: absolute
+  left: 123px
+  top: 205px
+  width: 100px
+  height: 50px
+  background: #000
+  box-shadow: -5px -3px 0px #000
+  border-radius: 20%
+  border: 1px solid #333
+  -webkit-transform: scale(0.6, 0.6)
+  transform: scale(0.6, 0.6)
+  .time
+    position: absolute
+    width: 75px
+    text-align: center
+    left: calc(50% - 37.5px)
+    top: calc(50% - 8px)
+    font-family: 'Comfortaa', cursive
+    font-size: 16px
+    color: #1b95e0
+
+.text-container
+  position: absolute
+  top: 450px
+  width: 600px
+  height: 150px
+  margin-bottom: 15px
+  .banner
+    background: white
+    margin-bottom: 15px
+    box-shadow: 0 0 10px #888
+    .text
+      color: #aaa
+      font-size: 70px
+      text-align: center
+      font-family: Sans-Serif
+      margin-top: 35px
+  .subtitle
+    color: #558b9b
+    text-align: center
